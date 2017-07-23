@@ -2,8 +2,6 @@
 
 ---
 
-**Build a Traffic Sign Recognition Project**
-
 The goals of this project are the following:
 * Load the data set (see below for links to the project data set)
 * Explore, summarize and visualize the data set
@@ -78,16 +76,19 @@ My final model consisted of the following layers:
 
 | Layer         		|     Description	        					|
 |:---------------------:|:---------------------------------------------:|
-| Input         		| 32x32x3 RGB image   							|
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Input         		| 32x32x1 Grayscale image   					|
+| Convolution 32x32x1   | 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
-
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6  				|
+| Convolution 14x14x6   | 1x1 stride, valid padding, outputs 10x10x16 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 10x10x16  				|
+| Flatten               | input 10x10x16, outputs 5x5x16                |
+| Fully connected 		| input 400, ouputs 120        					|
+| RELU                  | activation   									|
+| Fully connected 		| input 120, ouputs 84        					|
+| RELU                  | activation   									|
+| Fully connected 		| input 84, ouputs 43        					|
 
 
 #### Training
