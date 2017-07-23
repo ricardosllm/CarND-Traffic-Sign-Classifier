@@ -1,2 +1,133 @@
 # CarND-Traffic-Sign-Classifier
-Classify Traffic Signs
+
+---
+
+**Build a Traffic Sign Recognition Project**
+
+The goals of this project are the following:
+* Load the data set (see below for links to the project data set)
+* Explore, summarize and visualize the data set
+* Design, train and test a model architecture
+* Use the model to make predictions on new images
+* Analyze the softmax probabilities of the new images
+* Summarize the results with a written report
+
+
+[//]: # (Image References)
+
+[image1]: ./examples/visualization.jpg "Visualization"
+[image2]: ./examples/grayscale.jpg     "Grayscaling"
+[image3]: ./architecture.png           "Architecture diagram"
+[image4]: ./data/web/1.jpeg            "Traffic Sign 1"
+[image5]: ./data/web/2.jpeg            "Traffic Sign 2"
+[image6]: ./data/web/3.jpeg            "Traffic Sign 3"
+[image7]: ./data/web/4.jpeg            "Traffic Sign 4"
+[image8]: ./data/web/5.jpeg            "Traffic Sign 5"
+
+## Rubric Points
+###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view)
+individually and describe how I addressed each point in my implementation.
+
+---
+
+Here is a link to my [project code](https://github.com/ricardosllm/CarND-Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
+
+### Data Set Summary & Exploration
+
+I used the pandas library to calculate summary statistics of the traffic
+signs data set:
+
+* The size of training set is 34799
+* The size of the validation set is 4410
+* The size of test set is 12630
+* The shape of a traffic sign image is (32, 32, 3)
+* The number of unique classes/labels in the data set is 43
+
+#### Exploratory visualization of the dataset.
+
+A visualisation of the dataset can be found in the notebook,
+in the `Exploratory Visualization of the Dataset` section.
+
+Here's an example of the distribution of the number of images by classes
+
+![alt text][image1]
+
+### Design and Test a Model Architecture
+
+
+As a first step, I decided to convert the images to grayscale
+to remove light effects, this is specially important in the
+case of traffic signs images due to large diference between
+signs in direct sun ligh and signs in the shadow or even
+eluminated by artfictial ligh in night conditions.
+
+Here is an example of a traffic sign image after grayscaling.
+
+![alt text][image2]
+
+As a last step, I normalized the image data so that the data has mean zero and equal variance.
+
+I decided not to generate additional even though it would be useful here.
+I might decide to expand this dataset in a future time.
+
+Here's a diagram of the Model used, LeNet-5
+
+![alt text][image2]
+
+My final model consisted of the following layers:
+
+| Layer         		|     Description	        					|
+|:---------------------:|:---------------------------------------------:|
+| Input         		| 32x32x3 RGB image   							|
+| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
+| Convolution 3x3	    | etc.      									|
+| Fully connected		| etc.        									|
+| Softmax				| etc.        									|
+|						|												|
+|						|												|
+
+
+
+#### Training
+
+To train the model, I used tensorflow's `softmax_cross_entropy_with_logits`
+function and `AdamOptimizer` for the optimizer.
+
+I've used a batch size of `256`, this was enough to achieve the
+required validation accuracy and it's small enough that it can
+be trained in a above average laptop.
+
+I've used a learning rate of `0.0015`, this value was achieved
+by experimentation and turned out to be the best in its vicinity
+considering the rest of the hyperparameters.
+
+I've chosen to use `25` epochs for this training.
+The reason I did not decide for a higher value is that,
+with these hyperparameters, the accuracy was not really increasing
+after 20 epochs. This can potentially be tuned in the future if other
+hyperparameters like learning rate and batch size are changed.
+
+#### Accuracy
+
+My final model results were:
+* validation set accuracy of **95.4%**
+* test set accuracy of **92.5%**
+
+I've taken the suggestion from the class to use the LeNet-5
+architecture and achieved an accuracy of 89% on the first approch.
+
+I then improved the data preprocessing and the accuracy increased
+to around 91%, 92%
+
+Finally I experimented with hyperparameters to acheive the desired
+accuracy of > 93%
+
+###Test a Model on New Images
+###Test a Model on New Images
+
+Here are five German traffic signs that I found on the web:
+
+![alt text][image4] ![alt text][image5] ![alt text][image6]
+![alt text][image7] ![alt text][image8]
