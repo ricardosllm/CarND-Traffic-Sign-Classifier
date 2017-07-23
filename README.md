@@ -72,7 +72,7 @@ I might decide to expand this dataset in a future time.
 
 Here's a diagram of the Model used, LeNet-5
 
-![alt text][image2]
+![alt text][image3]
 
 My final model consisted of the following layers:
 
