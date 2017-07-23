@@ -15,8 +15,8 @@ The goals of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg     "Grayscaling"
+[image1]: ./examples/visualization.png "Visualization"
+[image2]: ./examples/grayscale.png     "Grayscaling"
 [image3]: ./architecture.png           "Architecture diagram"
 [image4]: ./data/web/1.jpeg            "Traffic Sign 1"
 [image5]: ./data/web/2.jpeg            "Traffic Sign 2"
@@ -25,7 +25,7 @@ The goals of this project are the following:
 [image8]: ./data/web/5.jpeg            "Traffic Sign 5"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view)
+I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view)
 individually and describe how I addressed each point in my implementation.
 
 ---
@@ -124,8 +124,7 @@ to around 91%, 92%
 Finally I experimented with hyperparameters to acheive the desired
 accuracy of > 93%
 
-###Test a Model on New Images
-###Test a Model on New Images
+### Test a Model on New Images
 
 Here are five German traffic signs that I found on the web:
 
