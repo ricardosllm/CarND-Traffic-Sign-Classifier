@@ -131,3 +131,28 @@ Here are five German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6]
 ![alt text][image7] ![alt text][image8]
+
+They are very similar to the images used to train the model in
+terms of brightness, contrast and color thus should be possible
+to classify correctly
+
+However, as we can see from the section `Predict the Sign Type for Each Image`
+of the notebook, the model is unable to correctly predict any of the images.
+
+The probabilities for the top 5 classes are all very close together
+and in the range of **2,5 to 3%**, this is clearly not the desired
+outcome.
+
+A possible explanation for this is that the model *overfitted* as
+with a validation accuracy of over **95%** the model should be able
+to correctly classify similar images.
+
+The model basically learned the features of the training data, memorized them
+instead of generalizing.
+
+As mentioned above one possible solution would be to augment the data,
+more data would allow the model to train for longer and possibly reduce
+overfitting.
+
+Another solution could be to increase the *dropout* rate, as it is known to
+prevent overfitting.
